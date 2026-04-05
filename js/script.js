@@ -19,33 +19,76 @@ slides[index].classList.add("active");
 
 });
 
+// хеддер
+
+(function() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    const scrollSection = document.querySelector('.scroll-section');
+    let isInsideScrollSection = false;
+
+    if (scrollSection) {
+        scrollSection.addEventListener('mouseenter', () => {
+            isInsideScrollSection = true;
+        });
+        scrollSection.addEventListener('mouseleave', () => {
+            isInsideScrollSection = false;
+        });
+    }
+
+    let lastScrollTop = 0;
+    let ticking = false;
+
+    window.addEventListener('scroll', function() {
+        // Если курсор внутри анимашки то ничего не делаем
+        if (isInsideScrollSection) return;
+
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (currentScroll > lastScrollTop && currentScroll > 50) {
+                    header.classList.add('hidden');
+                } else if (currentScroll < lastScrollTop) {
+                    header.classList.remove('hidden');
+                }
+                
+                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+})();
+
+
 
 // приветсвенный блок появляется
 
 (function() {
-  // Функция для применения анимации появления/исчезновения
   function initScrollAnimation() {
-    const elements = document.querySelectorAll('.content h1, .content .text, .content .highlight, .content .accent');
-    if (!elements.length) return;
+    
+    const existingElements = document.querySelectorAll('.content h1, .content .text, .content .highlight, .content .accent');
+    
+    const newElements = document.querySelectorAll('.fade-up');
+    // Объединяем
+    const allElements = [...existingElements, ...newElements];
+    if (!allElements.length) return;
 
-    // Создаём наблюдатель с порогом 0.2 (элемент считается видимым, если 20% его площади в окне)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Добавляем класс при появлении в зоне видимости
           entry.target.classList.add('visible');
         } else {
-          // Удаляем класс при выходе из зоны видимости
           entry.target.classList.remove('visible');
         }
       });
     }, { threshold: 0.2 });
 
-    // Начинаем следить за каждым элементом
-    elements.forEach(el => observer.observe(el));
+    allElements.forEach(el => observer.observe(el));
   }
 
-  // Запускаем после полной загрузки DOM
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initScrollAnimation);
   } else {
@@ -61,25 +104,25 @@ slides[index].classList.add("active");
 const products = [
 {
 id:1,
-name:"Молочный шоколад",
+name:"Молочный шоколад 32% Sicao (Россия), <br> 5 кг",
 price:629,
 img:"https://raw.githubusercontent.com/BesovaVorobiovaKremerMD15/photo2/main/Rectangle%20240648777%20(1).png"
 },
 {
 id:2,
-name:"Малина сублимированная",
+name:"Малина сублимированная кусочки, I Love Bake, <br> 50 г",
 price:459,
 img:"https://raw.githubusercontent.com/BesovaVorobiovaKremerMD15/photo2/main/Rectangle%20240648778%20(1).png"
 },
 {
 id:3,
-name:"Сыр креметте",
+name:"Сыр твороженный Креметте 1000 г Hochland",
 price:949,
 img:"https://raw.githubusercontent.com/BesovaVorobiovaKremerMD15/photo2/main/Rectangle%20240648777.png"
 },
 {
 id:4,
-name:"Глазурь молочная",
+name:"Глазурь молочная твердая лауриновая Chocvic <br> Lucia, 1,5 кг",
 price:1210,
 img:"https://raw.githubusercontent.com/BesovaVorobiovaKremerMD15/photo2/main/Rectangle%20240648778.png"
 }
