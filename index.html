@@ -15,18 +15,18 @@
     <div class="left">
       <div class="logo"><img src="images/logo.png" alt="Логотип"></div>
       <div class="navigation_header">
-        <button>О нас</button>
-        <button>Спец. предложения</button>
-        <button>Популярное</button>
-        <button>Товары</button>
-        <button>Карта</button>
+            <a href="#about_us"><button data-scroll-to="about">О нас</button></a>
+            <a href="#spesial1"><button data-scroll-to="offers">Спец. предложения</button></a>
+            <a href="#popular"><button data-scroll-to="popular">Популярное</button></a>
+            <a href="#tovary"><button data-scroll-to="products">Товары</button></a>
+            <a href="#map"><button data-scroll-to="map">Карта</button></a>
       </div>
   </div>
     <div class="icons">
       <button class="button1"></button>
       <button class="button2"></button>
       <button class="button3"></button>
-    </div>
+    </div></div>
 </header>
 
 <section class="scroll-section">
@@ -69,10 +69,11 @@
 
 <!-- О НАС -->
 
-<section class="about_us">
+<section id="about_us" class="about_us">
+    
     <div class="about_us_content">
-        <div class="about_us_title">О НАС</div>
-        <div class="about_us_text_photo">
+        <section class="fade-up"><div class="about_us_title">О НАС</div></section>
+        <section class="fade-up"><div class="about_us_text_photo">
             <div class="about_us_text">
                 <div class="about_us_text1">
                     <div class="about_us_krujok"></div>
@@ -115,7 +116,7 @@
                 <div class="about_us_image2"></div>
             </div>
         </div>        
-    </div>
+    </div></section>
     <div class="about_us_back">
         <div class="about_us_back1"></div>
         <div class="about_us_back2"></div>
@@ -124,9 +125,9 @@
 
 <!-- СПЕЦ ПРЕДЛОЖЕНИЯ -->
 
-<section class="spesial1"><div class="spesial">
-    <h1>СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ</h1>
-    <div class="spesial_content">
+<section id="spesial1" class="spesial1"><div class="spesial">
+    <section class="fade-up"><h1>СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ</h1></section>
+    <section class="fade-up"><div class="spesial_content">
         <div class="spesial_content_case">
             <h2>БЕСПЛАТНАЯ <br> ДОСТАВКА 24 ЧАСА</h2>
             <p>При заказе от 5000 РУБ </p>
@@ -139,78 +140,57 @@
             <h2>КРУГЛОСУТОЧНО</h2>
             <p>Принимаем заказы</p>
         </div>
-    </div></div>
+    </div></div></section>
 </section>
 
 <!-- ПОПУЛЯРНЫЕ ТОВАРЫ // -->
 
+<section class="popular1"><section id="popular" class="popular">
+    <section class="fade-up"><h1>ПОПУЛЯРНЫЕ ТОВАРЫ</h1></section>
+    <section class="fade-up"><div class="popular_content">
+        <div class="popular_content_1">
+            <div class="popular_img1"></div>
+            <div class="popular_disctrprp">
+                <p>Глазурь молочная твердая <br> лауриновая Chocvic Lucia, 1,5 кг</p>
+                <h3>1 210 ₽</h3>
+            </div>
+        </div>
+        <div class="popular_content_1">
+            <div class="popular_img2"></div>
+            <div class="popular_disctrprp">
+                <p>Малина сублимированная кусочки, <br> I Love Bake, 50 г</p>
+                <h3>459 ₽</h3>
+            </div>
+        </div>
+    </div></section>
+</section></section>
+
+
 
 <!-- ТОВАРЫ // -->
 
-<section class="tovary">
-<div class="container">
+<section id="tovary" class="tovary">
+    <section class="fade-up"><h1>ТОВАРЫ</h1></section>
+    <div class="container">
+        <section class="fade-up"><div class="products" id="products"></div></section>
+        <section class="fade-up"><div class="cart">
+            <h2>Корзина</h2>
+            <div id="cartItems"></div>
 
-<div class="products" id="products"></div>
-
-<div class="cart">
-<h2>Корзина</h2>
-<div id="cartItems"></div>
-
-<button class="checkoutBtn" onclick="openModal()">Отправить</button>
-<div class="modal" id="orderModal">
-<div class="modal-content">
-
-<div class="modal-header">
-<h2>ОФОРМЛЕНИЕ ЗАКАЗА</h2>
-
-<div class="modal-actions">
-<button class="contacts">Контакты</button>
-<span class="close" onclick="closeModal()">✖</span>
-</div>
-</div>
-
-<div class="modal-body">
-
-  <div class="form-column">
-  <label>ФИО</label>
-  <input id="name">
-
-  <label>Телефон</label>
-  <input id="phone">
-
-  <label>Адрес</label>
-  <input id="address">
-
-  <label>Почта</label>
-  <input id="email">
-  </div>
-
-  <div class="note-column">
-  <textarea id="note" placeholder="Примечание..."></textarea>
-  </div>
-<div class="total" id="modalTotal"></div>
-</div>
-  <div style="margin:10px 0;">
-          <input type="checkbox" id="privacyCheck" onclick="updateCheckoutBtn()">
-          <label for="privacyCheck">Я согласен с <a href='#' target='_blank'>политикой конфиденциальности</a></label>
-  </div>
-<div class="modal-footer">
-<button onclick="checkout()">Отправить</button>
-</div>
-
-</div>
-</div>
-</div>
-</div></section>
+            <button class="checkoutBtn" onclick="openModal()">Отправить</button>
+            
+        </div></section>
+    </div>
+</section>
 
 
 
 <!-- КАРТА // -->
 
-<section class="map">
+<section id="map" class="map">
     <div class="map_content">
-        <div class="about_us_title">КАРТА</div>
-        <div class="map_field">
+        <section class="fade-up"><div class="about_us_title">КАРТА</div></section>
+        <section class="fade-up"><div class="map_field">
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.853350309581!2d30.314043177320713!3d59.93457556242734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310526f0854f%3A0xdbd92a3587fa4dc4!2z0JHQvtC70YzRiNCw0Y8g0JzQvtGA0YHQutCw0Y8g0YPQuy4sIDE4LCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywg0KDQvtGB0YHQuNGPLCAxOTExODY!5e0!3m2!1sru!2sus!4v1774823179648!5m2!1sru!2sus" 
                 width=100% 
@@ -221,7 +201,7 @@
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
-    </div>
+    </div></section>
     <div class="map_back">
         <div class="map_back1"></div>
         <div class="map_back2"></div>
@@ -257,7 +237,49 @@
     </div>
  </section>
 
+ <div class="modal" id="orderModal">
+                <div class="modal-content">
 
+                    <div class="modal-header">
+                        <h2>ОФОРМЛЕНИЕ ЗАКАЗА</h2>
+
+                        <div class="modal-actions">
+                            <button class="contacts">Контакты</button>
+                            <span class="close" onclick="closeModal()">✖</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="form-column">
+                            <label>ФИО</label>
+                            <input id="name">
+
+                            <label>Телефон</label>
+                            <input id="phone">
+
+                            <label>Адрес</label>
+                            <input id="address">
+
+                            <label>Почта</label>
+                            <input id="email">
+                            </div>
+
+                            <div class="note-column">
+                            <textarea id="note" placeholder="Примечание..."></textarea>
+                        </div>
+                        <div class="total" id="modalTotal"></div>
+                    </div>
+                    <div style="margin:10px 0;">
+                        <input type="checkbox" id="privacyCheck" onclick="updateCheckoutBtn()">
+                        <label for="privacyCheck">Я согласен с <a href='#' target='_blank'>политикой конфиденциальности</a></label>
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="checkout()">Отправить</button>
+                    </div>
+
+                </div>
+            </div>
 
 <script src="js/script.js"></script>
 </body>
